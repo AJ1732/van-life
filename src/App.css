@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.vanlife_container {
+  max-width: 35rem;
+  margin: auto;
+}
+
+.img-bg {
+  background: linear-gradient(0deg, 
+                rgba(0, 0, 0, 0.46) 0%, 
+                rgba(0, 0, 0, 0.46) 100%),
+              url("https://s3-alpha-sig.figma.com/img/050a/aa4a/9b62f902c3de6d1b54b3a5d23341752c?Expires=1695600000&Signature=LzCvcKMcZVaXW~Ah5hrOZqc9C-UGbZBz4nhpdOZjvMKMpl9VMKh3ZHmrZdqwF7SYc5s4WY6dI928PW9PpYLrWlrd-2rRCJ5VT81qmXKQjJk86uxH0ueCnrDPIRqBu01H16MLcU0kh8Bk8lTwZHzs3IJC-GdDUgwoh05ucv0BnbVtaMexH~AQ9-6-cM2aIFqwP2n6aSFnn9FQJeRpcr3Lse4Mb6PsEGxrGwqN8LSOP4twVLhYc6bzFyMbjlKqNdR5Neua1etOoyoVmZaFS2mqr~XTDR40KQKF~5kL-uXmIh4lfQfNsMxvVVS2QpVolYwooTKI2OtxGs4i7FM-Q0-7UQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"), 
+              lightgray 0px -65.191px / 100% 178.109% no-repeat;
+}
