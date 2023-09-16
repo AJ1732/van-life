@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 const VanDetail = () => {
   const { id } = useParams()
-  const [vans, setVans] = useState(null)
+  const [vans, setVans] = useState([])
 
   async function getVans() {
     const data = await fetch(`/api/vans/${id}`)
@@ -16,16 +16,17 @@ const VanDetail = () => {
     getVans()
   }, [id]);
 
- const { name, price, description, type, imageUrl } = vans
-  console.log(vans);
+  const { name, price, description, type, imageUrl } = vans
+  // console.log(vans);
 
   return (
     <div className="van-detail-container">
-      {vans ? (<div className='bg-bg-orange flex flex-col justify-center items-center | py-24 px-7'>
+      {vans.length !== 0 ?
+      (<div className='bg-bg-orange flex flex-col justify-center items-center | py-12 px-7'>
         <img className='w-104 h-104 rounded-md | object-cover' src={imageUrl} alt="Van image" />
 
         <div className="w-full | flex flex-col items-left gap-4 | mt-12">
-          <button className={`text-white text-center font-semibold | bg-${type} | w-24 h-10 rounded-md | py-2 px-5`}>{type}</button>
+          <button className={`text-white text-center font-semibold | bg-ft-black | w-24 h-10 rounded-md | py-2 px-5`}>{type}</button>
           <h2 className='text-black text-3xl font-bold'>{name}</h2>
 
           <div>
@@ -37,7 +38,8 @@ const VanDetail = () => {
 
           <button className={`text-white text-center font-semibold | bg-orange | rounded-md | mt-3 py-2 px-5`}>Rent this Van</button>
         </div>
-      </div>): <h2>Loading...</h2>} 
+      </div>):
+      <h2 className='text-center text-2xl p-20'>Loading...</h2>} 
     </div>
   )
 }

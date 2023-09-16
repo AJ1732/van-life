@@ -7,6 +7,8 @@ export default {
   theme: {
     colors: {
       'white': '#FFFFFF',
+      'black': '#161616',
+      'grey': '#4D4D4D',
       'orange': '#FF8C38',
       'bg-orange': '#FFF7ED',
       'ac-orange': '#FFCC8D',
@@ -14,7 +16,6 @@ export default {
       'rugged': '#115E59',
       'simple': '#E17654',
       'luxury': '#161616',
-      'black': '#161616',
       'ft-black': '#252525',
       'ft-grey': '#AAAAAA',
     },

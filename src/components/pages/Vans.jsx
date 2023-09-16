@@ -14,7 +14,7 @@ const Vans = () => {
     getVans()
   }, []);
 
-  console.log(vansList);
+  // console.log(vansList);
 
   return (
     <div className='bg-bg-orange | w-full | flex flex-col | py-12 px-7'>
@@ -33,7 +33,8 @@ const Vans = () => {
               </h3>
             </div>
 
-            <button className={`text-white text-center font-semibold | bg-${van.type} | w-24 h-10 rounded-md | py-2 px-5`}>{van.type}</button>
+            {/* bg-${van.type} */}
+            <button className={`text-white text-center font-semibold | bg-ft-black | w-24 h-10 rounded-md | py-2 px-5`}>{van.type}</button>
           </Link>
         ))}
       </div>
