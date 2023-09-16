@@ -10,7 +10,7 @@ const HomePage = () => {
 
         <p className='text-base font-medium'>Add adventure to your life by joining the #vanlife movement. Rent the perfect van to make your perfect road trip.</p>
 
-        <Link to={"/vans"} className='bg-orange | font-bold | mt-8 py-4 px-40 | rounded-md'>Find your van</Link>
+        <Link to={"/vans"} className='bg-orange | text-center font-bold | mt-8 py-4 px-40 | rounded-md'>Find your van</Link>
       </div>
     </div>
   )

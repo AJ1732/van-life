@@ -11,8 +11,9 @@ export default {
       'bg-orange': '#FFF7ED',
       'ac-orange': '#FFCC8D',
       'txt-orange': '#FFEAD0',
-      'green': '#115E59',
-      'brown': '#E17654',
+      'rugged': '#115E59',
+      'simple': '#E17654',
+      'luxury': '#161616',
       'black': '#161616',
       'ft-black': '#252525',
       'ft-grey': '#AAAAAA',
@@ -26,7 +27,7 @@ export default {
       },
       borderRadius: {
         "sl": "0.3125rem"
-      }
+      },
     },
     // FF8C38
   },

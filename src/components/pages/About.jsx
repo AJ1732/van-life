@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const About = () => {
   return (
-    <div>
+    <div className='bg-bg-orange'>
       <img 
         className='w-full h-64 | object-cover' 
         src={`https://s3-alpha-sig.figma.com/img/370c/d3ba/87f1968974ee12ce5da85059cc83bb81?Expires=1695600000&Signature=hkuZwgTNyHVwPbJAbTgcXWgJadSXpp5kIPm9T-DRxLjpu1ORxsvMkk6aYfEr0r4FtT0cBQrg7qZh2PnjdrfhFQf8hzVFTpxo5hcE~rC7IY-BMNKgcyodHyDQBJ0mKZqWiiDjw5XoVpbFxDvojupWeZWupcm3neYjxhgKoahbOhwtLSOKzQ4zKXMAho62VxbMWS9feRO9mkrALA3pY7483y3Mn0BkmzH0tJXoMsgg~iBBcoUng18VXq-RwMvZYy78UYwksUnc7luCwidb9QEXU~21oG5wAa~2fYuXihsKv91NrWjh95DqfgGdfJ1mRc73wiobUUNDlj9ulU93Trbrjg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4`} 
