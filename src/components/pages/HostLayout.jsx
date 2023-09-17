@@ -13,21 +13,21 @@ const HostLayout = () => {
         </NavLink>
 
         <NavLink 
-          to={"/host/income"} 
+          to={"income"} 
           className={
             ({isActive}) => isActive? "text-black font-bold underline": "hover:text-black"}>
           Income
         </NavLink>
 
         <NavLink 
-          to={"/host/vans"} 
+          to={"vans"} 
           className={
             ({isActive}) => isActive? "text-black font-bold underline": "hover:text-black"}>
           Vans
         </NavLink>
 
         <NavLink 
-          to={"/host/reviews"} 
+          to={"reviews"} 
           className={
             ({isActive}) => isActive? "text-black font-bold underline": "hover:text-black"}>
           Reviews
