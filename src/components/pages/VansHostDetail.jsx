@@ -39,19 +39,21 @@ const VansHostDetail = () => {
       </Link>
 
       <div className='bg-white | rounded-md | py-7 px-6 '>
-        <div>
-          {
-            vansHostLength > 0?
-            <VanHostDetailHeader 
-              name={name}
-              price={price}
-              type={type}
-              imageUrl={imageUrl}/>:
-            <h2 className='text-center text-2xl p-20'>Loading...</h2>
-          }
+        {
+          vansHostLength > 0?
+          (
+            <div>
+              <VanHostDetailHeader 
+                name={name}
+                price={price}
+                type={type}
+                imageUrl={imageUrl}/>
 
-          <Outlet context={vansHost}/>
-        </div>
+              <Outlet context={vansHost}/>
+            </div>
+          ):
+          <h2 className='text-center text-2xl p-20'>Loading...</h2>
+        }
       </div>
       
     </div>
