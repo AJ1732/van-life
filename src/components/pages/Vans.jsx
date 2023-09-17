@@ -14,7 +14,7 @@ const Vans = () => {
     getVans()
   }, []);
 
-  // console.log(vansList);
+  console.log(vansList);
 
   return (
     <div className='bg-bg-orange | w-full | flex flex-col | py-12 px-7'>
