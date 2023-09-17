@@ -29,7 +29,7 @@ const Vans = () => {
       </div>
 
       {/* bg-${van.type} */}
-      <button className={`text-white text-center font-semibold | bg-ft-black | w-24 h-10 rounded-md | py-2 px-5`}>{van.type}</button>
+      <button className={`text-white text-center capitalize font-semibold | bg-ft-black | w-24 h-10 rounded-md | py-2 px-5`}>{van.type}</button>
     </Link>
   ))
 

@@ -9,28 +9,28 @@ const HostLayout = () => {
           to={"."} 
           end
           className={
-            ({isActive}) => isActive? "text-black font-bold ": "hover:text-black"}>
+            ({isActive}) => isActive? "text-black font-bold": "hover:text-black"}>
           Dashboard
         </NavLink>
 
         <NavLink 
           to={"income"} 
           className={
-            ({isActive}) => isActive? "text-black font-bold underline": "hover:text-black"}>
+            ({isActive}) => isActive? "text-black font-bold": "hover:text-black"}>
           Income
         </NavLink>
 
         <NavLink 
           to={"vans"} 
           className={
-            ({isActive}) => isActive? "text-black font-bold underline": "hover:text-black"}>
+            ({isActive}) => isActive? "text-black font-bold": "hover:text-black"}>
           Vans
         </NavLink>
 
         <NavLink 
           to={"reviews"} 
           className={
-            ({isActive}) => isActive? "text-black font-bold underline": "hover:text-black"}>
+            ({isActive}) => isActive? "text-black font-bold": "hover:text-black"}>
           Reviews
         </NavLink>
       </nav>

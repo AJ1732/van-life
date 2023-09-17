@@ -27,7 +27,7 @@ const VanDetail = () => {
           <img className='w-104 h-104 rounded-md | object-cover' src={imageUrl} alt="Van image" />
 
           <div className="w-full | flex flex-col items-left gap-4 | mt-12">
-            <button className={`text-white text-center font-semibold | bg-ft-black | w-24 h-10 rounded-md | py-2 px-5`}>{type}</button>
+            <button className={`text-white text-center capitalize font-semibold | bg-ft-black | w-24 h-10 rounded-md | py-2 px-5`}>{type}</button>
             <h2 className='text-black text-3xl font-bold'>{name}</h2>
 
             <div>
