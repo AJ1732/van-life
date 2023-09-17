@@ -41,9 +41,12 @@ const VansHostDetail = () => {
   console.log();
   return (
     <div className='bg-bg-orange | flex flex-col gap-10 | py-11 px-7'>
-      <Link to={`/host/vans`} className='flex justify-start items-center gap-2.5'>
-        <img className='w-3' src={arrow} alt="back" />
-        <p className='underline font-medium'>Back to all vans</p>
+      <Link 
+        to={`..`} 
+        relative='path'
+        className='flex justify-start items-center gap-2.5'>
+          <img className='w-3' src={arrow} alt="back" />
+          <p className='underline font-medium'>Back to all vans</p>
       </Link>
 
       <div className='bg-white p-6 rounded-md'>

@@ -6,7 +6,8 @@ const HostLayout = () => {
     <div>
        <nav className='text-grey | bg-bg-orange py-8 px-7 | flex gap-8'>
         <NavLink 
-          to={"/host"} 
+          to={"."} 
+          end
           className={
             ({isActive}) => isActive? "text-black font-bold ": "hover:text-black"}>
           Dashboard
@@ -33,6 +34,7 @@ const HostLayout = () => {
           Reviews
         </NavLink>
       </nav>
+
       <Outlet />
     </div>
   )

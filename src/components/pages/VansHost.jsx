@@ -16,8 +16,6 @@ const VansHost = () => {
     getVansHost()
   }, []);
 
-  console.log(vansHostList);
-
   const vansHostListElement = vansHostList.map( (vansHost) => (
     <Link to={`/host/vans/${vansHost.id}`} key={vansHost.id} className='bg-white | h-24 p-6 | flex items-center gap-4 | rounded-md'>
       <img className='w-16 h-16 rounded-md' src={vansHost.imageUrl} alt="Van Host Image" />
