@@ -24,9 +24,6 @@ const Vans = () => {
   // console.log(searchParams);
   // Check URLSearchParams on other methods for searchParams
 
-  // Filtering Vans List
-  const vanListElementFilter = typeFilter? vansList.filter(vans => vans.type === typeFilter): vansList;
-
   const searchParamString = (key, value) => {
     setSearchParams( prevParams => {
       if (value == null) {
@@ -40,10 +37,36 @@ const Vans = () => {
   }
   
   // console.log(searchParamString("type", "value"));
+
+  // To select the Respective color class, bg-${van.type} wasn't working
+  const bgType = (type) =>{
+    switch(type) {
+      case "simple":
+        return "bg-simple";
+        break;
+      case "luxury":
+        return "bg-luxury";
+        break;
+      case "rugged":
+        return "bg-rugged";
+        break;
+    }
+  }
+  // console.log(bgType("rugged"));
+
+  // Filtering Vans List
+  const vanListElementFilter = 
+    typeFilter? 
+    vansList.filter(vans => vans.type === typeFilter): 
+    vansList;
+
   // Vans List Result
   const vanListElement = vanListElementFilter.map( (van) => (
     <Link 
       to={van.id} // Because van.id is already a string from the API
+      state={{ 
+        search: `?${searchParams.toString()}`,
+        type: typeFilter }}
       key={van.id} 
       className='flex flex-col m-auto '>
 
@@ -57,8 +80,7 @@ const Vans = () => {
         </h3>
       </div>
 
-      {/* bg-${van.type} */}
-      <button className={`text-white text-center capitalize font-semibold | bg-orange | w-24 h-10 rounded-md | py-2 px-5`}>{van.type}</button>
+      <button className={`text-white text-center capitalize font-semibold | ${bgType(van.type)} | w-24 h-10 rounded-md | py-2 px-5`}>{van.type}</button>
     </Link>
   ))
 
@@ -86,26 +108,26 @@ const Vans = () => {
           <button 
             onClick={() => setSearchParams({type: "simple"})} 
             className={
-              `bg-txt-orange | py-2 px-6 rounded-md | 
+              `py-2 px-6 rounded-md | 
               ${typeFilter == "simple"? 
               "bg-simple text-white": 
-              "hover:bg-simple hover:text-white"}`}>Simple</button>
+              "bg-txt-orange hover:bg-simple hover:text-white"}`}>Simple</button>
 
           <button 
             onClick={() => setSearchParams({type: "luxury"})} 
             className={
-            `bg-txt-orange | py-2 px-6 rounded-md | 
+            `py-2 px-6 rounded-md | 
             ${typeFilter == "luxury"? 
             "bg-luxury text-white": 
-            "hover:bg-luxury hover:text-white"}`}>Luxury</button>
+            "bg-txt-orange hover:bg-luxury hover:text-white"}`}>Luxury</button>
 
           <button 
             onClick={() => setSearchParams({type: "rugged"})} 
             className={
-            `bg-txt-orange | py-2 px-6 rounded-md | 
+            `py-2 px-6 rounded-md | 
             ${typeFilter == "rugged"? 
             "bg-rugged text-white": 
-            "hover:bg-rugged hover:text-white"}`}>Rugged</button>
+            "bg-txt-orange hover:bg-rugged hover:text-white"}`}>Rugged</button>
         </div>
 
         {/* TO CLEAR FILTERS */}
