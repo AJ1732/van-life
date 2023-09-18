@@ -26,6 +26,9 @@ export default {
       width: {
         "104": "30rem",
       },
+      maxWidth: {
+        "s": "14rem",
+      },
       borderRadius: {
         "sl": "0.3125rem"
       },

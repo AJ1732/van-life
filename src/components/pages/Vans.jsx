@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 const Vans = () => {
+  // To get Van List
   const [vansList, setVansList] = useState([])
 
   async function getVans() {
@@ -16,11 +18,38 @@ const Vans = () => {
 
   // console.log(vansList);
 
-  // Vans List 
-  const VanListElement = vansList.map( (van) => (
-    <Link to={`/vans/${van.id}`} key={van.id} className='flex flex-col '>
+  // To Search
+  const [searchParams, setSearchParams] = useSearchParams();
+  const typeFilter = searchParams.get("type"); // This returns the query's value
+  // console.log(searchParams);
+  // Check URLSearchParams on other methods for searchParams
+
+  // Filtering Vans List
+  const vanListElementFilter = typeFilter? vansList.filter(vans => vans.type === typeFilter): vansList;
+
+  const searchParamString = (key, value) => {
+    setSearchParams( prevParams => {
+      if (value == null) {
+        prevParams.delete(key)
+      } else {
+        prevParams.set(key, value)
+      }
+      return prevParams
+      // value == null? prevParams.delete(key): prevParams.set(key, value);
+    })
+  }
+  
+  // console.log(searchParamString("type", "value"));
+  // Vans List Result
+  const vanListElement = vanListElementFilter.map( (van) => (
+    <Link 
+      to={van.id} // Because van.id is already a string from the API
+      key={van.id} 
+      className='flex flex-col m-auto '>
+
       <img className='w-56 h-56 rounded-md | object-cover' src={van.imageUrl} alt="van image" />
-      <div className='mt-4 | flex flex-row justify-between items-start gap-2'>
+
+      <div className='max-w-s mt-4 | flex flex-row justify-between items-start gap-2'>
         <h3 className='text-black text-lg font-semibold'>{van.name}</h3>
         <h3 className='text-right | flex flex-col gap-0'>
           <span className='text-black text-lg font-semibold'>${van.price}</span>
@@ -29,19 +58,70 @@ const Vans = () => {
       </div>
 
       {/* bg-${van.type} */}
-      <button className={`text-white text-center capitalize font-semibold | bg-ft-black | w-24 h-10 rounded-md | py-2 px-5`}>{van.type}</button>
+      <button className={`text-white text-center capitalize font-semibold | bg-orange | w-24 h-10 rounded-md | py-2 px-5`}>{van.type}</button>
     </Link>
   ))
 
   return (
     <div className='bg-bg-orange | w-full | flex flex-col | py-12 px-7'>
-      <h2 className='text-black text-3xl font-bold'>Explore our van options</h2>
-      <div className="filters"></div>
+      <h2 className='text-black text-2xl text-center sm:text-3xl sm:text-left font-bold'>Explore our van options</h2>
 
-      <div className='mt-14 | grid grid-cols-2 gap-8'>
+      <div className="text-grey | flex flex-wrap gap-5 justify-center sm:justify-between items-center | pt-6 transition-all">
+        {/* TO FILTER THE VANS */}
+        <div className='flex flex-wrap gap-3 sm:gap-5 justify-center items-center'>
+          {/* <Link to={`?type=simple`} className='bg-txt-orange py-2 px-6 rounded-md'>Simple</Link>
+          <Link to={`?type=luxury`} className='bg-txt-orange py-2 px-6 rounded-md'>Luxury</Link>
+          <Link to={`?type=rugged`} className='bg-txt-orange py-2 px-6 rounded-md'>Rugged</Link> */}
+
+          {/* OR we make use of the setSearchParams function using a string or object */}
+          {/* <button onClick={() => setSearchParams("?type=simple")} className='bg-txt-orange py-2 px-6 rounded-md'>Simple</button>
+          <button onClick={() => setSearchParams("?type=luxury")} className='bg-txt-orange py-2 px-6 rounded-md'>Luxury</button>
+          <button onClick={() => setSearchParams("?type=rugged")} className='bg-txt-orange py-2 px-6 rounded-md'>Rugged</button> */}
+
+          {/* <button onClick={() => setSearchParams({type: "simple"})} className='bg-txt-orange py-2 px-6 rounded-md'>Simple</button>
+          <button onClick={() => setSearchParams({type: "luxury"})} className='bg-txt-orange py-2 px-6 rounded-md'>Luxury</button>
+          <button onClick={() => setSearchParams({type: "rugged"})} className='bg-txt-orange py-2 px-6 rounded-md'>Rugged</button> */}
+
+          {/* OR passing a custom function */}
+          <button 
+            onClick={() => setSearchParams({type: "simple"})} 
+            className={
+              `bg-txt-orange | py-2 px-6 rounded-md | 
+              ${typeFilter == "simple"? 
+              "bg-simple text-white": 
+              "hover:bg-simple hover:text-white"}`}>Simple</button>
+
+          <button 
+            onClick={() => setSearchParams({type: "luxury"})} 
+            className={
+            `bg-txt-orange | py-2 px-6 rounded-md | 
+            ${typeFilter == "luxury"? 
+            "bg-luxury text-white": 
+            "hover:bg-luxury hover:text-white"}`}>Luxury</button>
+
+          <button 
+            onClick={() => setSearchParams({type: "rugged"})} 
+            className={
+            `bg-txt-orange | py-2 px-6 rounded-md | 
+            ${typeFilter == "rugged"? 
+            "bg-rugged text-white": 
+            "hover:bg-rugged hover:text-white"}`}>Rugged</button>
+        </div>
+
+        {/* TO CLEAR FILTERS */}
+        {/* By using "." or "" this takes us back to the current page */}
+        {/* <Link to={`.`} className='text-base underline'>Clear filters</Link> */}
+        {
+          typeFilter? 
+          <button onClick={() => setSearchParams({type: ''})} className='text-base underline'>Clear filters</button>:
+          null
+        }
+      </div>
+
+      <div className='mt-14 | grid grid-cols-1 sm:grid-cols-2 gap-8'>
         {
           vansList.length > 0? 
-          VanListElement: 
+          vanListElement: 
           <h2 className='text-center text-2xl p-20'>Loading...</h2>
         }
       </div>

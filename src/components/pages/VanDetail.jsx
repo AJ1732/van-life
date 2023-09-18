@@ -1,6 +1,8 @@
 // import React from 'react'
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import arrow from '../files/back_arrow.svg'
 
 const VanDetail = () => {
   const { id } = useParams()
@@ -20,10 +22,18 @@ const VanDetail = () => {
   console.log(vans);
 
   return (
-    <div className="van-detail-container">
+    <div className="bg-bg-orange flex flex-col">
+      <Link 
+        to={`..`} 
+        relative='path'
+        className='flex justify-start items-center gap-2.5 px-7'>
+          <img className='w-3' src={arrow} alt="back" />
+          <p className='underline font-medium'>Back to all vans</p>
+      </Link>
+
       {
         vans.length !== 0 ?
-        (<div className='bg-bg-orange flex flex-col justify-center items-center | py-12 px-7'>
+        (<div className='flex flex-col justify-center items-center | py-12 px-7'>
           <img className='w-104 h-104 rounded-md | object-cover' src={imageUrl} alt="Van image" />
 
           <div className="w-full | flex flex-col items-left gap-4 | mt-12">

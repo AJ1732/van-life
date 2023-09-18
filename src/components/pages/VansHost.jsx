@@ -17,7 +17,11 @@ const VansHost = () => {
   }, []);
 
   const vansHostListElement = vansHostList.map( (vansHost) => (
-    <Link to={`/host/vans/${vansHost.id}`} key={vansHost.id} className='bg-white | h-24 p-6 | flex items-center gap-4 | rounded-md'>
+    <Link 
+      to={vansHost.id} // Because vanHost.id is already a string from the API
+      key={vansHost.id} 
+      className='bg-white | h-24 p-6 | flex items-center gap-4 | rounded-md'>
+      
       <img className='w-16 h-16 rounded-md' src={vansHost.imageUrl} alt="Van Host Image" />
       <div className='flex flex-col justify-center items-start'>
         <h2 className='text-black text-xl font-semibold'>{vansHost.name}</h2>
